@@ -17,5 +17,6 @@ A free FlickrAPIKey is available at
 
 
 
-[End of Lecture #13](http://cs193p.m2m.at/cs193p-lecture-13-core-data-and-table-view-2013-14/) -> [EndOfLecture11](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture13)
+[End of Lecture #14](http://cs193p.m2m.at/cs193p-lecture-14-uiapplication-network-activity-indicator-and-maps-fall-2013-14/) -> [EndOfLecture14](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture14)
+[End of Lecture #13](http://cs193p.m2m.at/cs193p-lecture-13-core-data-and-table-view-2013-14/) -> [EndOfLecture13](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture13)
 

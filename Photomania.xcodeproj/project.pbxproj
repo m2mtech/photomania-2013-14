@@ -31,6 +31,10 @@
 		5B7931C31854A34F002CFD4A /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7931BF1854A34F002CFD4A /* CoreDataTableViewController.m */; };
 		5B7931C41854A34F002CFD4A /* PhotomaniaAppDelegate+MOC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7931C21854A34F002CFD4A /* PhotomaniaAppDelegate+MOC.m */; };
 		5B7931C71854A3BB002CFD4A /* PhotographersCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7931C61854A3BB002CFD4A /* PhotographersCDTVC.m */; };
+		5B7931CC1854CC23002CFD4A /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7931CB1854CC23002CFD4A /* ImageViewController.m */; };
+		5B7931CF1854CF16002CFD4A /* PhotosByPhotographerCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7931CE1854CF16002CFD4A /* PhotosByPhotographerCDTVC.m */; };
+		5B7931D21854D26C002CFD4A /* PhotosCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7931D11854D26C002CFD4A /* PhotosCDTVC.m */; };
+		5B7931D51854D4EC002CFD4A /* URLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7931D41854D4EC002CFD4A /* URLViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,14 @@
 		5B7931C61854A3BB002CFD4A /* PhotographersCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographersCDTVC.m; sourceTree = "<group>"; };
 		5B7931C81854ADDC002CFD4A /* PhotoDatabaseAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoDatabaseAvailability.h; sourceTree = "<group>"; };
 		5B7931C91854B893002CFD4A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		5B7931CA1854CC23002CFD4A /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		5B7931CB1854CC23002CFD4A /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		5B7931CD1854CF16002CFD4A /* PhotosByPhotographerCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosByPhotographerCDTVC.h; sourceTree = "<group>"; };
+		5B7931CE1854CF16002CFD4A /* PhotosByPhotographerCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosByPhotographerCDTVC.m; sourceTree = "<group>"; };
+		5B7931D01854D26C002CFD4A /* PhotosCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCDTVC.h; sourceTree = "<group>"; };
+		5B7931D11854D26C002CFD4A /* PhotosCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCDTVC.m; sourceTree = "<group>"; };
+		5B7931D31854D4EC002CFD4A /* URLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLViewController.h; sourceTree = "<group>"; };
+		5B7931D41854D4EC002CFD4A /* URLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +174,14 @@
 				5B79318418539037002CFD4A /* PhotomaniaViewController.m */,
 				5B7931C51854A3BB002CFD4A /* PhotographersCDTVC.h */,
 				5B7931C61854A3BB002CFD4A /* PhotographersCDTVC.m */,
+				5B7931D01854D26C002CFD4A /* PhotosCDTVC.h */,
+				5B7931D11854D26C002CFD4A /* PhotosCDTVC.m */,
+				5B7931CD1854CF16002CFD4A /* PhotosByPhotographerCDTVC.h */,
+				5B7931CE1854CF16002CFD4A /* PhotosByPhotographerCDTVC.m */,
+				5B7931CA1854CC23002CFD4A /* ImageViewController.h */,
+				5B7931CB1854CC23002CFD4A /* ImageViewController.m */,
+				5B7931D31854D4EC002CFD4A /* URLViewController.h */,
+				5B7931D41854D4EC002CFD4A /* URLViewController.m */,
 				5B79318618539037002CFD4A /* Images.xcassets */,
 				5B7931BD1854A34F002CFD4A /* CoreDataTableViewController */,
 				5B7931B918539391002CFD4A /* FlickrFetcher */,
@@ -334,11 +354,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7931D51854D4EC002CFD4A /* URLViewController.m in Sources */,
 				5B7931AE185391A7002CFD4A /* Photo.m in Sources */,
 				5B7931C71854A3BB002CFD4A /* PhotographersCDTVC.m in Sources */,
 				5B7931C41854A34F002CFD4A /* PhotomaniaAppDelegate+MOC.m in Sources */,
 				5B7931B4185391F2002CFD4A /* Photo+Flickr.m in Sources */,
 				5B79317C18539037002CFD4A /* PhotomaniaAppDelegate.m in Sources */,
+				5B7931CF1854CF16002CFD4A /* PhotosByPhotographerCDTVC.m in Sources */,
+				5B7931D21854D26C002CFD4A /* PhotosCDTVC.m in Sources */,
+				5B7931CC1854CC23002CFD4A /* ImageViewController.m in Sources */,
 				5B7931BC1853958E002CFD4A /* Photographer+Create.m in Sources */,
 				5B7931C31854A34F002CFD4A /* CoreDataTableViewController.m in Sources */,
 				5B79317818539037002CFD4A /* main.m in Sources */,
