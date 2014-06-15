@@ -83,8 +83,15 @@
                             <constraint firstItem="eWN-s2-nQv" firstAttribute="top" secondItem="k3p-kS-yg0" secondAttribute="top" id="h0O-ff-fgd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hsi-bt-YVb"/>
+                    <navigationItem key="navigationItem" id="hsi-bt-YVb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gZg-WY-Pxt">
+                            <connections>
+                                <segue destination="Eam-pO-4bw" kind="modal" identifier="Add Photo" id="vEq-Zz-M7Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addPhotoBarButtonItem" destination="gZg-WY-Pxt" id="e9M-LH-YXn"/>
                         <outlet property="mapView" destination="eWN-s2-nQv" id="tNW-1F-S3k"/>
                         <segue destination="ErM-0W-mkJ" kind="push" identifier="Show Photo" id="ezN-tO-mRT"/>
                     </connections>
@@ -92,6 +99,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9CI-aT-hrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1777" y="314"/>
+        </scene>
+        <!--Add Photo View Controller-->
+        <scene sceneID="Lby-1R-3gr">
+            <objects>
+                <viewController id="Eam-pO-4bw" customClass="AddPhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jZY-SV-EUP"/>
+                        <viewControllerLayoutGuide type="bottom" id="thy-kt-tUK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fy8-4r-aIb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iG-Vh-RVC">
+                                <rect key="frame" x="20" y="20" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel" destination="Eam-pO-4bw" eventType="touchUpInside" id="PLI-h7-lYh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnO-DY-h4j">
+                                <rect key="frame" x="20" y="142" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto" destination="Eam-pO-4bw" eventType="touchUpInside" id="hHB-ea-dHx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Els-fO-LOk">
+                                <rect key="frame" x="263" y="20" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Wyo-K7-7hb" kind="unwind" identifier="Do Add Photo" unwindAction="addedPhoto:" id="LCa-6n-uqK"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-zz-PyH">
+                                <rect key="frame" x="20" y="180" width="280" height="280"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNh-pK-NwU">
+                                <rect key="frame" x="100" y="58" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Eam-pO-4bw" id="x9Y-6B-iFo"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-j5-UBM">
+                                <rect key="frame" x="100" y="96" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Eam-pO-4bw" id="dQW-Lq-cBh"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERY-Bh-h3R">
+                                <rect key="frame" x="33" y="105" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8Z-hI-sBF">
+                                <rect key="frame" x="59" y="62" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Hys-zz-PyH" id="ftg-G4-ekY"/>
+                        <outlet property="subtitleTextField" destination="i9H-j5-UBM" id="mJ7-TK-USf"/>
+                        <outlet property="titleTextField" destination="YNh-pK-NwU" id="5MK-7G-JB0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drZ-SD-P8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wyo-K7-7hb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2275" y="314"/>
         </scene>
         <!--Navigation Controller - Photomania-->
         <scene sceneID="n9T-fs-u7V">
