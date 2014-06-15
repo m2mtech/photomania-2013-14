@@ -15,6 +15,8 @@ A free FlickrAPIKey is available at
 
 ### various versions are available via branches and tags:
 
+[End of Lecture #17](http://cs193p.m2m.at/cs193p-lecture-17-camera-core-motion-application-lifecycle-fall-2013-14/) -> [EndOfLecture17](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture17)
+
 [End of Lecture #16](http://cs193p.m2m.at/cs193p-lecture-16-modal-segues-text-fields-alerts-and-action-sheets-fall-2013-14/) -> [EndOfLecture16](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture16)
 
 included image by Jeevan Jose, Kerala, India [CCO](http://creativecommons.org/publicdomain/zero/1.0/deed.en), via [Wikimedia Commons](http://commons.wikimedia.org/wiki/File%3ACommon_Jezebel_Delias_eucharis_by_kadavoor_3.jpg)

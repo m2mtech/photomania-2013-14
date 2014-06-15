@@ -11,7 +11,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "UIImage+CS193p.h"
 
-@interface AddPhotoViewController () <UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
+@interface AddPhotoViewController () <UITextFieldDelegate, UIAlertViewDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *subtitleTextField;
@@ -22,7 +22,7 @@
 @property (strong, nonatomic) NSURL *thumbnailURL;
 @property (strong, nonatomic, readwrite) Photo *addedPhoto;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-
+@property (nonatomic) NSInteger locationErrorCode;
 
 @end
 
@@ -91,6 +91,9 @@
             photo.thumbnailURL = [self.thumbnailURL absoluteString];
             
             self.addedPhoto = photo;
+            
+            self.imageURL = nil;
+            self.thumbnailURL = nil;
         }
     }
 }
@@ -103,6 +106,18 @@
             return NO;
         } else if (![self.titleTextField.text length]) {
             [self alert:@"Title required!"];
+            return NO;
+        } else if (!self.location) {
+            switch (self.locationErrorCode) {
+                case kCLErrorLocationUnknown:
+                    [self alert:@"Couldn't figure out where this photo was taken (yet)."]; break;
+                case kCLErrorDenied:
+                    [self alert:@"Location Services disabled under Privacy in Settings application."]; break;
+                case kCLErrorNetwork:
+                    [self alert:@"Can't figure out where this photo is being taken.  Verify your connection to the network."]; break;
+                default:
+                    [self alert:@"Cant figure out where this photo is being taken, sorry."]; break;
+            }
             return NO;
         } else {
             return YES;
@@ -149,6 +164,11 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.location = [locations lastObject];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    self.locationErrorCode = error.code;
 }
 
 - (NSURL *)uniqueDocumentURL
@@ -205,11 +225,66 @@
 
 - (IBAction)cancel
 {
+    self.image = nil;
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)takePhoto
 {
+    UIImagePickerController *uiipc = [[UIImagePickerController alloc] init];
+    uiipc.delegate = self;
+    uiipc.mediaTypes = @[(NSString *)kUTTypeImage];
+    uiipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    uiipc.allowsEditing = YES;
+    [self presentViewController:uiipc animated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    if (!image) image = info[UIImagePickerControllerOriginalImage];
+    self.image = image;
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)filterImage
+{
+    if (!self.image) {
+        [self alert:@"You must take a photo first!"];
+    } else {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Filter Image"
+                                                                 delegate:self
+                                                        cancelButtonTitle:nil
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:nil];
+        
+        for (NSString *filter in [self filters]) {
+            [actionSheet addButtonWithTitle:filter];
+        }
+        [actionSheet addButtonWithTitle:@"Cancel"];
+        
+        [actionSheet showInView:self.view];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *choice = [actionSheet buttonTitleAtIndex:buttonIndex];
+    NSString *filterName = [self filters][choice];
+    self.image = [self.image imageByApplyingFilterNamed:filterName];
+}
+
+- (NSDictionary *)filters
+{
+    return @{ @"Chrome" : @"CIPhotoEffectChrome",
+              @"Blur" : @"CIGaussianBlur",
+              @"Noir" : @"CIPhotoEffectNoir",
+              @"Fade" : @"CIPhotoEffectFade" };
 }
 
 @end
