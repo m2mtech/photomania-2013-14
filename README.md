@@ -1,6 +1,6 @@
 # Photomania Demo of cs193p lecture (Fall 2013-14)
 
-written in Xcode 5.0.2 for iOS7.0+
+written in Xcode 5.1.1 for iOS7.1+
 
 
 To be able to run this app please set the FlickrAPIKey in FlickrAPIKey.h
@@ -16,7 +16,7 @@ A free FlickrAPIKey is available at
 ### various versions are available via branches and tags:
 
 
-
+[End of Lecture #15](http://cs193p.m2m.at/cs193p-lecture-15-mapkit-and-embed-segue-fall-2013-14/) -> [EndOfLecture15](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture15)
 [End of Lecture #14](http://cs193p.m2m.at/cs193p-lecture-14-uiapplication-network-activity-indicator-and-maps-fall-2013-14/) -> [EndOfLecture14](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture14)
 [End of Lecture #13](http://cs193p.m2m.at/cs193p-lecture-13-core-data-and-table-view-2013-14/) -> [EndOfLecture13](https://github.com/m2mtech/photomania-2013-14/tree/EndOfLecture13)
 

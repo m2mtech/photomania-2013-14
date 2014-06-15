@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KUE-W2-bAK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KUE-W2-bAK">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Photos By PhotographerCDTVC - Shutterbug-->
@@ -14,7 +14,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo Cell" textLabel="gbX-PP-Gxr" detailTextLabel="vDm-xL-MYv" style="IBUITableViewCellStyleSubtitle" id="0jm-Jx-pIl">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0jm-Jx-pIl" id="Knk-2w-su9">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -57,6 +57,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYN-CM-pHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1777" y="-284"/>
+        </scene>
+        <!--Photos By Photographer Map View Controller-->
+        <scene sceneID="YGS-7I-rMO">
+            <objects>
+                <viewController id="3JD-M1-6QU" customClass="PhotosByPhotographerMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EnQ-qN-t3o"/>
+                        <viewControllerLayoutGuide type="bottom" id="dCA-Bl-U6h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k3p-kS-yg0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eWN-s2-nQv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eWN-s2-nQv" secondAttribute="bottom" id="6A3-1n-zXw"/>
+                            <constraint firstAttribute="trailing" secondItem="eWN-s2-nQv" secondAttribute="trailing" id="8eS-c8-61O"/>
+                            <constraint firstItem="eWN-s2-nQv" firstAttribute="leading" secondItem="k3p-kS-yg0" secondAttribute="leading" id="Fgz-xf-Zx8"/>
+                            <constraint firstItem="eWN-s2-nQv" firstAttribute="top" secondItem="k3p-kS-yg0" secondAttribute="top" id="h0O-ff-fgd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hsi-bt-YVb"/>
+                    <connections>
+                        <outlet property="mapView" destination="eWN-s2-nQv" id="tNW-1F-S3k"/>
+                        <segue destination="ErM-0W-mkJ" kind="push" identifier="Show Photo" id="ezN-tO-mRT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9CI-aT-hrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1777" y="314"/>
         </scene>
         <!--Navigation Controller - Photomania-->
         <scene sceneID="n9T-fs-u7V">
@@ -109,7 +144,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="2AW-Uq-igl" kind="push" identifier="Show Photos By Photographer" id="aMK-Hm-bPF"/>
+                                    <segue destination="3JD-M1-6QU" kind="push" identifier="Show Photos By Photographer" id="C8F-cP-mbN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -214,4 +249,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="ezN-tO-mRT"/>
+    </inferredMetricsTieBreakers>
 </document>
