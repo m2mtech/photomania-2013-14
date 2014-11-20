@@ -9,6 +9,9 @@
 #import "PhotographersCDTVC.h"
 #import "Photographer.h"
 #import "PhotoDatabaseAvailability.h"
+#import "PhotosByPhotographerCDTVC.h"
+#import "PhotosByPhotographerMapViewController.h"
+#import "PhotosByPhotographerImageViewController.h"
 
 @implementation PhotographersCDTVC
 
@@ -51,5 +54,53 @@
     
     return cell;
 }
+
+#pragma mark - Navigation
+
+- (void)prepareViewController:(id)vc
+                     forSegue:(NSString *)segueIdentifer
+                fromIndexPath:(NSIndexPath *)indexPath
+{
+    Photographer *photographer = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if ([vc isKindOfClass:[PhotosByPhotographerCDTVC class]]) {
+        PhotosByPhotographerCDTVC *pbpcdtvc = (PhotosByPhotographerCDTVC *)vc;
+        pbpcdtvc.photographer = photographer;
+    } else if ([vc isKindOfClass:[PhotosByPhotographerMapViewController class]]) {
+        PhotosByPhotographerMapViewController *pbpmaptvc = (PhotosByPhotographerMapViewController *)vc;
+        pbpmaptvc.photographer = photographer;
+    } else if ([vc isKindOfClass:[PhotosByPhotographerImageViewController class]]) {
+        PhotosByPhotographerImageViewController *pbpivc = (PhotosByPhotographerImageViewController *)vc;
+        pbpivc.photographer = photographer;
+    }
+
+}
+
+// boilerplate
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    NSIndexPath *indexPath = nil;
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        indexPath = [self.tableView indexPathForCell:sender];
+    }
+    [self prepareViewController:segue.destinationViewController
+                       forSegue:segue.identifier
+                  fromIndexPath:indexPath];
+}
+
+// boilerplate
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id detailvc = [self.splitViewController.viewControllers lastObject];
+    if ([detailvc isKindOfClass:[UINavigationController class]]) {
+        detailvc = [((UINavigationController *)detailvc).viewControllers firstObject];
+        [self prepareViewController:detailvc
+                           forSegue:nil
+                      fromIndexPath:indexPath];
+    }
+}
+
+
 
 @end

@@ -3,7 +3,7 @@
 //  Photomania
 //
 //  Created by Martin Mandl on 07.12.13.
-//  Copyright (c) 2013 m2m server software gmbh. All rights reserved.
+//  Copyright (c) 2014 m2m server software gmbh. All rights reserved.
 //
 
 #import "PhotomaniaAppDelegate.h"
@@ -11,6 +11,7 @@
 #import "FlickrFetcher.h"
 #import "Photo+Flickr.h"
 #import "PhotoDatabaseAvailability.h"
+#import "Photographer+Create.h"
 
 @interface PhotomaniaAppDelegate() <NSURLSessionDownloadDelegate>
 @property (copy, nonatomic) void (^flickrDownloadBackgroundURLSessionCompletionHandler)();
@@ -73,7 +74,9 @@
 - (void)setPhotoDatabaseContext:(NSManagedObjectContext *)photoDatabaseContext
 {
     _photoDatabaseContext = photoDatabaseContext;
-    
+
+    if (photoDatabaseContext) [Photographer userInManagedObjectContext:photoDatabaseContext];
+
     [self.flickrForegroundFetchTimer invalidate];
     self.flickrForegroundFetchTimer = nil;
     

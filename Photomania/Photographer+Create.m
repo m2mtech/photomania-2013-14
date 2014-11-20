@@ -3,12 +3,22 @@
 //  Photomania
 //
 //  Created by Martin Mandl on 07.12.13.
-//  Copyright (c) 2013 m2m server software gmbh. All rights reserved.
+//  Copyright (c) 2014 m2m server software gmbh. All rights reserved.
 //
 
 #import "Photographer+Create.h"
 
 @implementation Photographer (Create)
+
++ (Photographer *)userInManagedObjectContext:(NSManagedObjectContext *)context
+{
+    return [self photographerWithName:@" My Photos" inManagedObjectContext:context];
+}
+
+- (BOOL)isUser
+{
+    return self == [[self class] userInManagedObjectContext:self.managedObjectContext];
+}
 
 + (Photographer *)photographerWithName:(NSString *)name
                 inManagedObjectContext:(NSManagedObjectContext *)context

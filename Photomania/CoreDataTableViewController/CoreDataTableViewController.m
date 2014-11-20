@@ -36,7 +36,9 @@
         _fetchedResultsController = newfrc;
         newfrc.delegate = self;
         if ((!self.title || [self.title isEqualToString:oldfrc.fetchRequest.entity.name]) && (!self.navigationController || !self.navigationItem.title)) {
-            self.title = newfrc.fetchRequest.entity.name;
+            self.title = [[NSBundle mainBundle] localizedStringForKey:newfrc.fetchRequest.entity.name
+                                                                value:newfrc.fetchRequest.entity.name
+                                                                table:@"Entities"];
         }
         if (newfrc) {
             if (self.debug) NSLog(@"[%@ %@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), oldfrc ? @"updated" : @"set");
@@ -111,7 +113,7 @@
 	   atIndexPath:(NSIndexPath *)indexPath
 	 forChangeType:(NSFetchedResultsChangeType)type
 	  newIndexPath:(NSIndexPath *)newIndexPath
-{		
+{
     switch(type)
     {
         case NSFetchedResultsChangeInsert:

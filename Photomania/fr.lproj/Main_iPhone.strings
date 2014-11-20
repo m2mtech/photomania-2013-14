@@ -1,0 +1,42 @@
+
+/* Class = "IBUIButton"; normalTitle = "Cancel"; ObjectID = "3iG-Vh-RVC"; */
+"3iG-Vh-RVC.normalTitle" = "Annuler";
+
+/* Class = "IBUIButton"; normalTitle = "Filter Image"; ObjectID = "7RX-BL-OEu"; */
+"7RX-BL-OEu.normalTitle" = "Filtre Image";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "DQg-IO-SfP"; */
+"DQg-IO-SfP.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "ERY-Bh-h3R"; */
+"ERY-Bh-h3R.text" = "Sous-Titre";
+
+/* Class = "IBUIButton"; normalTitle = "Done"; ObjectID = "Els-fO-LOk"; */
+"Els-fO-LOk.normalTitle" = "OK";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "IMe-Hm-5ar"; */
+"IMe-Hm-5ar.text" = "Subtitle";
+
+/* Class = "IBUINavigationController"; title = "Photomania"; ObjectID = "KUE-W2-bAK"; */
+"KUE-W2-bAK.title" = "Photomania";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "L8Z-hI-sBF"; */
+"L8Z-hI-sBF.text" = "Titre";
+
+/* Class = "IBUIButton"; normalTitle = "Take Photo"; ObjectID = "MnO-DY-h4j"; */
+"MnO-DY-h4j.normalTitle" = "Prendre une Photo";
+
+/* Class = "IBUIBarButtonItem"; title = "URL"; ObjectID = "O3X-c8-lfp"; */
+"O3X-c8-lfp.title" = "URL";
+
+/* Class = "IBUINavigationItem"; title = "Shutterbug"; ObjectID = "XKu-9j-jyJ"; */
+"XKu-9j-jyJ.title" = "Shutterbug";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "gbX-PP-Gxr"; */
+"gbX-PP-Gxr.text" = "Title";
+
+/* Class = "IBUITextView"; text = "http://www.stanford.edu"; ObjectID = "ulF-Om-O6F"; */
+"ulF-Om-O6F.text" = "http://www.stanford.edu";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "vDm-xL-MYv"; */
+"vDm-xL-MYv.text" = "Subtitle";
