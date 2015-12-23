@@ -1,0 +1,18 @@
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "EJa-KW-kSu"; */
+"EJa-KW-kSu.text" = "Title";
+
+/* Class = "IBUITextView"; text = "http://www.stanford.edu"; ObjectID = "HtJ-PO-p7Q"; */
+"HtJ-PO-p7Q.text" = "http://www.stanford.edu";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "fVf-Xx-cQh"; */
+"fVf-Xx-cQh.text" = "Subtitle";
+
+/* Class = "IBUINavigationController"; title = "Shutterbug"; ObjectID = "ijb-zc-Cej"; */
+"ijb-zc-Cej.title" = "Shutterbug";
+
+/* Class = "IBUINavigationController"; title = "Photomania"; ObjectID = "op0-UI-rkR"; */
+"op0-UI-rkR.title" = "Photomania";
+
+/* Class = "IBUIBarButtonItem"; title = "URL"; ObjectID = "z7n-wQ-Nd8"; */
+"z7n-wQ-Nd8.title" = "URL";
